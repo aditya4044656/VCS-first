@@ -1,4 +1,23 @@
 
+import ast
+import operator
+
+# Allowed binary and unary operators for safe_eval
+ALLOWED_BINOP = {
+    ast.Add: operator.add,
+    ast.Sub: operator.sub,
+    ast.Mult: operator.mul,
+    ast.Div: operator.truediv,
+    ast.FloorDiv: operator.floordiv,
+    ast.Mod: operator.mod,
+    ast.Pow: operator.pow,
+}
+
+ALLOWED_UNARYOP = {
+    ast.UAdd: operator.pos,
+    ast.USub: operator.neg,
+}
+
 def safe_eval(expr: str, names: dict):
     """
     Evaluate arithmetic expression safely using AST.
@@ -93,3 +112,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
+
+
+    
